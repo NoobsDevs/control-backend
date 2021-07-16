@@ -1,5 +1,7 @@
 package com.control.model;
 
+import javax.validation.constraints.Size;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,9 +11,13 @@ import lombok.Data;
 @Document(collection = "user")
 public class User {
 
+	
 	@Id
 	private String id;
 	
+	private String email;
+	
+	@Size(min = 3, max = 20, message = "Usuário deve conter entre 3 e 20 caracteres")
 	private String nome;
 	
 	private String login;
@@ -49,5 +55,13 @@ public class User {
 	}
 
 	private String password;
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 }

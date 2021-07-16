@@ -21,4 +21,7 @@ public class UserController {
 	public List<User> allUser() {
 		return this.userService.allUser();
 	}
+	
+	
+	
 }
